@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resilience in the Workplace - Ximena Castaño Ph.D.</title>
+    <style>
+        /* --- CSS VARIABLES & RESET (Same as Homepage) --- */
+        :root {
+            --primary-color: #b78c56; /* Gold/Bronze accent */
+            --text-color: #333333;
+            --bg-color: #ffffff;
+            --light-bg: #f8f9fa;
+            --heading-font: 'Playfair Display', serif;
+            --body-font: 'Lato', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            line-height: 1.8; /* Slightly more spacing for reading case studies */
+            background-color: var(--bg-color);
+        }
+
+        a { text-decoration: none; color: inherit; transition: color 0.3s; }
+        a:hover { color: var(--primary-color); }
+
+        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap');
+
+        /* --- HEADER & NAVIGATION --- */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 5px 20px;
+            font-size: 0.85rem;
+            text-align: right;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .logo {
+            font-family: var(--heading-font);
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #000;
+        }
+        .logo span { color: var(--primary-color); }
+
+        nav ul { display: flex; list-style: none; gap: 25px; }
+        nav a { font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
+
+        /* --- PROJECT HERO SECTION --- */
+        .project-hero {
+            background-color: var(--light-bg);
+            padding: 80px 20px 40px;
+            text-align: center;
+        }
+
+        .project-hero h1 {
+            font-family: var(--heading-font);
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .project-hero .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 12px 35px;
+            border-radius: 2px;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 2px solid var(--primary-color);
+            margin-top: 20px;
+        }
+        .btn:hover { background-color: #fff; color: var(--primary-color); }
+
+        /* --- CASE STUDY CONTENT --- */
+        .case-study-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+
+        .project-details-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+            background: #fff;
+            padding: 30px;
+            border-left: 5px solid var(--primary-color);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .detail-item h4 {
+            font-family: var(--heading-font);
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        .detail-item p { font-size: 0.95rem; color: #555; }
+
+        .content-section { margin-bottom: 60px; }
+        
+        .content-section h3 {
+            font-family: var(--heading-font);
+            font-size: 2rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .content-section h3::after {
+            content: '';
+            display: block;
+            width: 50%;
+            height: 3px;
+            background-color: var(--primary-color);
+            margin-top: 10px;
+        }
+
+        .content-section p { margin-bottom: 20px; color: #444; }
+
+        /* --- PLACEHOLDER IMAGES --- */
+        .img-placeholder {
+            width: 100%;
+            height: 400px;
+            background-color: #eee;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 1.2rem;
+            margin: 40px 0;
+            border-radius: 4px;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background-color: #222;
+            color: #aaa;
+            text-align: center;
+            padding: 40px 20px;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-container { flex-direction: column; gap: 15px; }
+            .project-hero h1 { font-size: 2.2rem; }
+            nav ul { flex-direction: column; text-align: center; gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">ximenacastano@gmail.com</div>
+
+    <!-- Header -->
+    <header>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Ximena Castaño <span>Ph.D.</span></a>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Mentorship</a></li>
+                    <li><a href="#">Books</a></li>
+                    <li><a href="#">Resume</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <h1>Project Micro-Course</h1>
+        <p class="subtitle">"Resilience in the Workplace"</p>
+        <a href="#" class="btn">Experience the Project</a>
+    </section>
+
+    <!-- Case Study Container -->
+    <div class="case-study-container">
+
+        <!-- Project Details Metadata -->
+        <div class="project-details-grid">
+            <div class="detail-item">
+                <h4>Role</h4>
+                <p>Research, ID, Script, Graphic Design, Development</p>
+            </div>
+            <div class="detail-item">
+                <h4>Tools</h4>
+                <p>Articulate Rise, Krita, Canva, Figma</p>
+            </div>
+            <div class="detail-item">
+                <h4>Audience</h4>
+                <p>Young Professionals</p>
+            </div>
+            <div class="detail-item">
+                <h4>Year</h4>
+                <p>2022</p>
+            </div>
+        </div>
+
+        <!-- The Problem -->
+        <div class="content-section">
+            <h3>The Problem</h3>
+            <p>
+                Most young professionals find it difficult to face the day-to-day challenges of work. The inability to deal with the stressful situations that arise on a daily basis creates misunderstandings at work, feelings of fatigue, an inability to think clearly to find creative solutions, and a lack of control over day-to-day tasks.
+            </p>
+            <p>
+                Ultimately, this leads to dissatisfaction. These problems can be better managed when we learn to better understand ourselves and create space to balance our energies, emotions, and attitudes.
+            </p>
+        </div>
+
+        <!-- Image Placeholder -->
+        <div class="img-placeholder">
+            [Image: Mockup of Articulate Rise Course on Laptop]
+        </div>
+
+        <!-- The Solution -->
+        <div class="content-section">
+            <h3>The Solution</h3>
+            <p>
+                It is crucial to help young professionals hone their resilience levels to help them face challenging situations that are common in every workplace. A professional can be very skillful, but if they are unable to behave composedly during a stressful situation, it can negatively impact their performance and motivation.
+            </p>
+            <p>
+                Understanding resilience better can help bridge the gap in managing stress at work. This short and dynamic learning experience is designed to be implemented during the onboarding of young professionals.
+            </p>
+            <p>
+                Above all, the interactive story allows users to practice and internalize the resilience threshold through <strong>decision making, direct feedback, and reflective writing.</strong> This course features an interactive visualization made possible for execution as a web-responsive design.
+            </p>
+        </div>
+
+        <!-- Image Placeholder -->
+        <div class="img-placeholder">
+            [Image: Course Prototype / Screens]
+        </div>
+
+        <!-- The Process / Reflection -->
+        <div class="content-section">
+            <h3>Reflection & Process</h3>
+            <p>
+                Creating this project was an ongoing process that helped me gain a stronger sense of the instructional design workflow from beginning to end. I learned how to design, develop, and refine a learning experience that was story-based and addressed real-life communication problems for young professionals.
+            </p>
+            <p>
+                I discovered how essential the development phase is in gaining a deeper understanding of tools that help create professional and quality eLearning experiences. I realized just how much every detail counts in the learning experience – from buttons, spacing, and text font, to other core design principles.
+            </p>
+        </div>
+
+        <div style="text-align: center; margin-top: 50px;">
+            <a href="#" class="btn">Launch Full Course</a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Ximena Castaño Ph.D. All Rights Reserved.</p>
+        <p style="font-size: 0.8rem; opacity: 0.7;">CoachPress Lite Theme | Developed By Blossom Themes</p>
+    </footer>
+
+</body>
+</html>
