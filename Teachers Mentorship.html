@@ -20,23 +20,34 @@
             border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .gradient-bg {
-            background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
-        }
-
         .hero-gradient {
             background: linear-gradient(90deg, #4f46e5, #9333ea);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
+        .persona-card {
+            background: #ffffff;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+        }
         
+        .persona-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
+        }
+
         #mobile-menu { display: none; }
         #mobile-menu.active { display: block; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
 </head>
-<body class="bg-white text-slate-900">
+<body class="bg-slate-50 text-slate-900">
 
-    <!-- Navigation (Consistent with Home) -->
+    <!-- Navigation -->
     <nav class="glass-nav fixed w-full z-50 top-0">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-20">
@@ -48,8 +59,8 @@
                 
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="portfolio_update.html" class="text-sm font-medium hover:text-indigo-600 transition-colors">Home</a>
-                    <a href="portfolio_update.html#portfolio" class="text-sm font-medium hover:text-indigo-600 transition-colors">All Projects</a>
-                    <a href="mailto:ximenacastano@gmail.com" class="bg-indigo-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-md">Contact</a>
+                    <a href="portfolio_update.html#portfolio" class="text-sm font-medium hover:text-indigo-600 transition-colors">Portfolio</a>
+                    <a href="mailto:ximenacastano@gmail.com" class="bg-indigo-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-md">Get in Touch</a>
                 </div>
 
                 <div class="md:hidden flex items-center">
@@ -59,184 +70,209 @@
                 </div>
             </div>
         </div>
-        <div id="mobile-menu" class="md:hidden bg-white border-b border-slate-100 px-4 py-4 space-y-2">
+        <div id="mobile-menu" class="md:hidden bg-white border-b border-slate-100 px-4 py-6 space-y-4">
             <a href="portfolio_update.html" class="block px-3 py-2 text-base font-medium text-slate-700">Home</a>
             <a href="portfolio_update.html#portfolio" class="block px-3 py-2 text-base text-slate-600">Portfolio</a>
             <a href="mailto:ximenacastano@gmail.com" class="block px-3 py-2 text-base font-medium text-indigo-600">Contact</a>
         </div>
     </nav>
 
-    <!-- Project Hero -->
-    <section class="pt-32 pb-12 lg:pt-48 bg-slate-50 border-b border-slate-100">
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 lg:pt-48 bg-white border-b border-slate-100">
         <div class="max-w-5xl mx-auto px-4">
-            <nav class="flex mb-8 text-sm font-medium text-slate-400">
-                <a href="portfolio_update.html" class="hover:text-indigo-600">Portfolio</a>
-                <span class="mx-2">/</span>
-                <span class="text-slate-600">Teachers' Mentorship</span>
+            <nav class="flex mb-8 text-sm font-bold text-indigo-500 uppercase tracking-widest">
+                <a href="portfolio_update.html#portfolio" class="hover:text-indigo-700 transition-colors">Portfolio</a>
+                <span class="mx-3 text-slate-300">/</span>
+                <span class="text-slate-400">Case Study</span>
             </nav>
-            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-4">
-                Teachers' <span class="hero-gradient">Mentorship</span>
+            <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                Teachers' <br class="hidden md:block"> <span class="hero-gradient">Mentorship</span>
             </h1>
-            <p class="text-xl text-slate-500 mb-8 max-w-2xl leading-relaxed">
-                An Articulate scenario-based learning experience designed to help pre-service teachers navigate classroom challenges and build confidence through safe simulation.
+            <p class="text-xl md:text-2xl text-slate-500 mb-10 max-w-3xl leading-relaxed">
+                A convergent branching scenario built to empower preservice teachers with the confidence to transition from theory to the classroom.
             </p>
-            <a href="https://articulateprj.s3.amazonaws.com/Mentoriship+Teacher%27s+Training+-+Storyline+output/story.html" target="_blank" class="inline-flex items-center bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-lg">
+            <a href="https://articulateprj.s3.amazonaws.com/Mentoriship+Teacher%27s+Training+-+Storyline+output/story.html" target="_blank" class="inline-flex items-center bg-indigo-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-indigo-700 transition-all shadow-xl">
                 Experience the Project <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
             </a>
         </div>
-    </section>
+    </header>
 
-    <!-- Project Meta Details -->
-    <section class="py-12 bg-white">
+    <!-- Quick Stats -->
+    <section class="py-12 bg-white border-b border-slate-100">
         <div class="max-w-5xl mx-auto px-4">
-            <div class="grid grid-cols-2 lg:grid-cols-4 gap-8 p-8 bg-slate-50 rounded-2xl border border-slate-100">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
                 <div>
-                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Role</h4>
-                    <p class="text-sm font-semibold text-slate-700">Instructional Design, Dev</p>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Roles</h4>
+                    <p class="text-sm font-bold text-slate-800">ID, Research, Scripting, Development</p>
                 </div>
                 <div>
                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Tools</h4>
-                    <p class="text-sm font-semibold text-slate-700">Articulate Storyline 360, JS</p>
+                    <p class="text-sm font-bold text-slate-800">Storyline 360, JavaScript, AI Visuals</p>
                 </div>
                 <div>
                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Audience</h4>
-                    <p class="text-sm font-semibold text-slate-700">Pre-service Teachers</p>
+                    <p class="text-sm font-bold text-slate-800">Preservice Teachers</p>
                 </div>
                 <div>
                     <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Year</h4>
-                    <p class="text-sm font-semibold text-slate-700">2023</p>
+                    <p class="text-sm font-bold text-slate-800">2023</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <article class="py-16">
-        <div class="max-w-3xl mx-auto px-4 space-y-20">
+    <!-- Project Overview -->
+    <main class="py-20">
+        <div class="max-w-4xl mx-auto px-4">
             
-            <!-- Section: Overview -->
-            <section>
-                <h2 class="text-2xl font-bold mb-6 flex items-center">
-                    <i data-lucide="info" class="mr-3 text-indigo-500"></i> Project Overview
-                </h2>
-                <div class="prose prose-slate lg:prose-lg max-w-none text-slate-600 leading-relaxed">
+            <section class="mb-32">
+                <h2 class="text-3xl font-bold mb-6">Project Overview</h2>
+                <div class="prose prose-slate lg:prose-lg text-slate-600 leading-relaxed max-w-none">
                     <p>
-                        <strong>Teachers' Mentorship</strong> is a guided-learning experience designed for preservice teachers. The project leverages a scenario-based learning approach to simulate real-life interactions between a mentor and a trainee.
+                        This project is a guided-learning experience created to help future educators navigate the complexities of classroom management. By leveraging a <strong>convergent scenario design</strong>, I ensured that every learner travels through a single, core narrative "stem" while having the freedom to explore various choices and see their direct consequences.
                     </p>
-                    <p class="mt-4">
-                        The goal is to help new teachers navigate the complexities of the education field, manage classroom challenges, and build confidence through mentorship simulations before stepping into a real classroom.
-                    </p>
-                </div>
-                
-                <!-- Placeholder for Project Image -->
-                <div class="mt-10 aspect-video bg-slate-100 rounded-2xl border border-dashed border-slate-300 flex flex-col items-center justify-center text-slate-400">
-                    <i data-lucide="image" class="w-12 h-12 mb-2"></i>
-                    <p class="text-xs font-bold uppercase tracking-widest">Mockup: Persona Card - William Wallace</p>
                 </div>
             </section>
 
-            <!-- Section: Challenge vs Solution -->
-            <section class="grid md:grid-cols-2 gap-8">
+            <!-- The Personas: Mentorship Dynamic -->
+            <section class="mb-32">
+                <h2 class="text-3xl font-bold mb-10 text-center">The Mentorship Dynamic</h2>
+                <div class="space-y-8">
+                    
+                    <!-- Mentor: William -->
+                    <div class="persona-card p-8 rounded-3xl flex flex-col md:flex-row gap-8 items-center md:items-start">
+                        <div class="w-40 h-56 bg-indigo-50 rounded-2xl flex-shrink-0 overflow-hidden border border-indigo-100 flex items-center justify-center">
+                            <img src="5dP8BHrBFvW_X_80_DX736_DY736_CX346_CY579.png" 
+                                 alt="William Wallace Mentor Persona" 
+                                 class="w-full h-full object-contain p-2"
+                                 onerror="this.onerror=null; this.innerHTML='<i data-lucide=\'user\' class=\'w-12 h-12 text-indigo-300\'></i>';">
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-xl font-bold">William Wallace</h3>
+                                <span class="bg-indigo-100 text-indigo-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Mentor</span>
+                            </div>
+                            <p class="text-sm text-slate-500 mb-4 italic">Age: 42 | Senior Lecturer in Education (15+ years experience)</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                William has a passion for guiding preservice teachers but struggles with time management amidst his own teaching duties. He often faces resistance from students who are defensive about feedback. 
+                            </p>
+                            <div class="bg-slate-50 p-4 rounded-xl text-xs text-slate-500">
+                                <strong>Goal:</strong> To foster a collaborative environment where students take ownership of their professional growth.
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Mentee: Emily -->
+                    <div class="persona-card p-8 rounded-3xl flex flex-col md:flex-row gap-8 items-center md:items-start">
+                        <div class="w-40 h-56 bg-purple-50 rounded-2xl flex-shrink-0 flex items-center justify-center border border-purple-100">
+                            <i data-lucide="graduation-cap" class="w-16 h-16 text-purple-300"></i>
+                        </div>
+                        <div>
+                            <div class="flex items-center gap-3 mb-2">
+                                <h3 class="text-xl font-bold">Emily Garcia</h3>
+                                <span class="bg-purple-100 text-purple-700 text-[10px] font-bold px-2 py-0.5 rounded-full uppercase">Mentee</span>
+                            </div>
+                            <p class="text-sm text-slate-500 mb-4 italic">Age: 24 | Preservice Teacher (Bachelor's Student)</p>
+                            <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                                Emily is passionate but currently overwhelmed by the demands of her practicum and coursework. She experiences significant self-doubt and imposter syndrome when faced with setbacks in a real classroom.
+                            </p>
+                            <div class="bg-slate-50 p-4 rounded-xl text-xs text-slate-500">
+                                <strong>Goal:</strong> To build practical knowledge and the confidence to handle diverse student needs effectively.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Challenge & Solution -->
+            <section class="grid md:grid-cols-2 gap-8 mb-32">
                 <div class="bg-red-50 p-8 rounded-2xl border border-red-100">
                     <h3 class="text-red-800 font-bold mb-4 flex items-center">
-                        <i data-lucide="alert-circle" class="mr-2 w-5 h-5"></i> The Challenge
+                        <i data-lucide="alert-triangle" class="mr-2 w-5 h-5"></i> The Pain Point
                     </h3>
                     <p class="text-red-900/70 text-sm leading-relaxed">
-                        Pre-service teachers often feel overwhelmed by practicum placements. They struggle with classroom execution and imposter syndrome. Without structured guidance, these early-career challenges can lead to burnout.
+                        Preservice teachers struggle to bridge the gap between educational theory and real-world execution. Traditional training lacks a risk-free space for them to explore the "what if" scenarios of classroom management.
                     </p>
                 </div>
                 <div class="bg-indigo-50 p-8 rounded-2xl border border-indigo-100">
                     <h3 class="text-indigo-800 font-bold mb-4 flex items-center">
-                        <i data-lucide="check-circle" class="mr-2 w-5 h-5"></i> The Solution
+                        <i data-lucide="lightbulb" class="mr-2 w-5 h-5"></i> The Design Choice
                     </h3>
                     <p class="text-indigo-900/70 text-sm leading-relaxed">
-                        A branching scenario simulation where learners control their journey. Interactive storytelling puts learners in the shoes of a mentee to make active decisions in a safe, risk-free environment.
+                        I chose a branching scenario to give learners control over their journey. This promotes active decision-making while ensuring that the central "mentorship meeting" simulation addresses all core competencies.
                     </p>
                 </div>
             </section>
 
-            <!-- Section: Features -->
-            <section>
-                <h2 class="text-2xl font-bold mb-8">Technical Features & Development</h2>
-                <ul class="grid sm:grid-cols-2 gap-4">
-                    <li class="flex items-start p-4 bg-slate-50 rounded-xl border border-slate-100">
-                        <i data-lucide="git-branch" class="mt-1 mr-3 w-5 h-5 text-indigo-500"></i>
-                        <div>
-                            <span class="font-bold block text-slate-800">Branching Scenarios</span>
-                            <span class="text-sm text-slate-500">Promoting active decision-making through choice-driven narrative.</span>
+            <!-- Features -->
+            <section class="mb-32">
+                <h2 class="text-3xl font-bold mb-10">Technical Features</h2>
+                <div class="grid sm:grid-cols-2 gap-8">
+                    <div class="flex gap-4 p-6 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="terminal" class="text-indigo-600"></i>
                         </div>
-                    </li>
-                    <li class="flex items-start p-4 bg-slate-50 rounded-xl border border-slate-100">
-                        <i data-lucide="code" class="mt-1 mr-3 w-5 h-5 text-indigo-500"></i>
                         <div>
-                            <span class="font-bold block text-slate-800">JavaScript Integration</span>
-                            <span class="text-sm text-slate-500">Advanced custom triggers for complex simulation logic.</span>
+                            <h4 class="font-bold mb-1">Custom JS Triggers</h4>
+                            <p class="text-sm text-slate-500">Executing complex logic through Storyline triggers to track learner choices and adjust feedback dynamically.</p>
                         </div>
-                    </li>
-                    <li class="flex items-start p-4 bg-slate-50 rounded-xl border border-slate-100">
-                        <i data-lucide="cpu" class="mt-1 mr-3 w-5 h-5 text-indigo-500"></i>
+                    </div>
+                    <div class="flex gap-4 p-6 bg-white rounded-2xl border border-slate-100 shadow-sm">
+                        <div class="w-12 h-12 rounded-xl bg-indigo-50 flex items-center justify-center flex-shrink-0">
+                            <i data-lucide="layers" class="text-indigo-600"></i>
+                        </div>
                         <div>
-                            <span class="font-bold block text-slate-800">AI-Generated Visuals</span>
-                            <span class="text-sm text-slate-500">Creating immersive environments and character personas.</span>
+                            <h4 class="font-bold mb-1">AI-Enhanced Storyboarding</h4>
+                            <p class="text-sm text-slate-500">Utilizing generative AI to visualize high-fidelity classroom environments and consistent character personas.</p>
                         </div>
-                    </li>
-                    <li class="flex items-start p-4 bg-slate-50 rounded-xl border border-slate-100">
-                        <i data-lucide="target" class="mt-1 mr-3 w-5 h-5 text-indigo-500"></i>
-                        <div>
-                            <span class="font-bold block text-slate-800">Convergent Design</span>
-                            <span class="text-sm text-slate-500">Guiding learners through key objectives while allowing freedom.</span>
-                        </div>
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </section>
 
-            <!-- Section: Reflection -->
-            <section class="bg-slate-900 text-white p-10 rounded-3xl relative overflow-hidden">
+            <!-- Reflection -->
+            <section class="bg-slate-900 text-white p-12 rounded-[2rem] relative overflow-hidden">
                 <div class="relative z-10">
-                    <h2 class="text-2xl font-bold mb-6">Reflection: Looking Forward</h2>
-                    <p class="text-slate-300 leading-relaxed mb-6">
-                        Reflecting on this project, I would have loved to add even more complex branching paths, allowing the Pre-service Teacher to face a wider variety of distinct situations with their pupils.
-                    </p>
-                    <p class="text-slate-300 leading-relaxed">
-                        However, the current model effectively demonstrates the core principles of mentorship: open dialogue, active participation, and the importance of seeking guidance to overcome self-doubt.
-                    </p>
+                    <h2 class="text-3xl font-bold mb-6">Reflection & Iteration</h2>
+                    <div class="prose prose-invert lg:prose-lg text-slate-400">
+                        <p>
+                            Reflecting on this project, I would have loved to include even deeper branching, allowing the Preservice Teacher to face a wider variety of distinct situations directly involving their pupils.
+                        </p>
+                        <p class="mt-4">
+                            However, the convergent model currently used effectively captures the essence of open dialogue and seeking guidance to overcome self-doubt.
+                        </p>
+                    </div>
                 </div>
-                <!-- Abstract visual element -->
-                <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-indigo-500/10 rounded-full blur-3xl"></div>
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl"></div>
             </section>
 
-            <!-- Final CTA -->
-            <div class="text-center py-12">
-                <a href="https://articulateprj.s3.amazonaws.com/Mentoriship+Teacher%27s+Training+-+Storyline+output/story.html" target="_blank" class="inline-flex items-center text-indigo-600 font-bold text-xl hover:underline">
-                    Launch Interactive Scenario <i data-lucide="arrow-right" class="ml-2 w-6 h-6"></i>
+            <!-- CTA -->
+            <div class="mt-32 text-center py-20 border-t border-slate-200">
+                <h3 class="text-2xl font-bold mb-6 text-slate-400">Ready to explore the simulation?</h3>
+                <a href="https://articulateprj.s3.amazonaws.com/Mentoriship+Teacher%27s+Training+-+Storyline+output/story.html" target="_blank" class="inline-flex items-center text-indigo-600 font-extrabold text-2xl hover:text-indigo-800 transition-all group">
+                    Launch Project <i data-lucide="arrow-right" class="ml-3 w-8 h-8 group-hover:translate-x-2 transition-transform"></i>
                 </a>
             </div>
 
         </div>
-    </article>
+    </main>
 
     <!-- Footer -->
-    <footer class="bg-slate-900 text-white py-12 px-4 border-t border-slate-800">
+    <footer class="bg-white border-t border-slate-100 py-12 px-4 text-slate-500 text-sm">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-6 md:mb-0">
-                <p class="text-lg font-bold">Ximena Castaño <span class="text-slate-500">Ph.D.</span></p>
-                <p class="text-slate-500 text-sm">Instructional Designer & eLearning Specialist</p>
-            </div>
-            <div class="flex space-x-6">
-                <a href="#" class="text-slate-400 hover:text-white"><i data-lucide="linkedin"></i></a>
-                <a href="#" class="text-slate-400 hover:text-white"><i data-lucide="github"></i></a>
-                <a href="mailto:ximenacastano@gmail.com" class="text-slate-400 hover:text-white"><i data-lucide="mail"></i></a>
+            <p>© 2025 Ximena Castaño Ph.D. All Rights Reserved.</p>
+            <div class="flex space-x-6 mt-4 md:mt-0 font-medium">
+                <a href="portfolio_update.html" class="hover:text-indigo-600">Home</a>
+                <a href="portfolio_update.html#portfolio" class="hover:text-indigo-600">All Projects</a>
+                <a href="mailto:ximenacastano@gmail.com" class="hover:text-indigo-600">Contact</a>
             </div>
         </div>
     </footer>
 
     <script>
         lucide.createIcons();
-
         const btn = document.getElementById('menu-toggle');
         const menu = document.getElementById('mobile-menu');
         const icon = document.getElementById('menu-icon');
-
         btn.addEventListener('click', () => {
             const isActive = menu.classList.toggle('active');
             icon.setAttribute('data-lucide', isActive ? 'x' : 'menu');
