@@ -1,379 +1,288 @@
-﻿<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - Ximena Castaño Ph.D.</title>
+    <title>Ximena Castaño | Instructional Designer & eLearning Specialist</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* --- CSS VARIABLES & RESET --- */
-        :root {
-            --primary-color: #b78c56; /* Gold/Bronze accent typical of CoachPress */
-            --text-color: #333333;
-            --bg-color: #ffffff;
-            --light-bg: #f8f9fa;
-            --heading-font: 'Playfair Display', serif; /* Elegant Serif for Headings */
-            --body-font: 'Lato', sans-serif; /* Clean Sans-Serif for Body */
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
         body {
-            font-family: var(--body-font);
-            color: var(--text-color);
-            line-height: 1.6;
-            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.3s;
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        a:hover {
-            color: var(--primary-color);
+        .project-card {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
         }
 
-        /* --- TYPOGRAPHY IMPORTS (Google Fonts Simulation) --- */
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap');
-
-        /* --- HEADER & NAVIGATION --- */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .project-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
         }
 
-        .top-bar {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 5px 20px;
-            font-size: 0.85rem;
-            text-align: right;
+        .gradient-text {
+            background: linear-gradient(90deg, #4f46e5, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
+        /* Mobile Menu Animation */
+        #mobile-menu {
+            display: none;
         }
-
-        .logo {
-            font-family: var(--heading-font);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #000;
+        #mobile-menu.active {
+            display: block;
+            animation: slideIn 0.3s ease-out;
         }
-
-        .logo span {
-            color: var(--primary-color);
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-        }
-
-        nav a {
-            font-weight: 500;
-            font-size: 0.95rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* --- HERO SECTION --- */
-        .hero {
-            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
-            background-size: cover;
-            background-position: center;
-            height: 80vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: #fff;
-            padding: 0 20px;
-        }
-
-        .hero-content {
-            max-width: 800px;
-            animation: fadeIn 1s ease-in;
-        }
-
-        .hero h2 {
-            font-family: var(--heading-font);
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 30px;
-            font-weight: 300;
-        }
-
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 12px 30px;
-            border-radius: 2px;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            border: 2px solid var(--primary-color);
-        }
-
-        .btn:hover {
-            background-color: transparent;
-            color: #fff;
-        }
-
-        /* --- ABOUT / INTRO SECTION --- */
-        .about-section {
-            padding: 80px 20px;
-            text-align: center;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        .about-section h3 {
-            font-family: var(--heading-font);
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-            color: #222;
-        }
-
-        .about-section p {
-            font-size: 1.1rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        /* --- PORTFOLIO GRID --- */
-        .portfolio-section {
-            background-color: var(--light-bg);
-            padding: 80px 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            font-family: var(--heading-font);
-            font-size: 2.5rem;
-            margin-bottom: 50px;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background: #fff;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.3s;
-            overflow: hidden;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-        }
-
-        .card-img {
-            height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #777;
-            font-size: 0.9rem;
-        }
-
-        .card-content {
-            padding: 25px;
-            text-align: center;
-        }
-
-        .card-content h4 {
-            font-family: var(--heading-font);
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-        }
-
-        .card-content p {
-            font-size: 0.95rem;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .read-more {
-            color: var(--primary-color);
-            font-weight: 700;
-            font-size: 0.9rem;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #222;
-            color: #aaa;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-        }
-
-        footer p {
-            margin-bottom: 10px;
-        }
-
-        /* --- RESPONSIVE --- */
-        @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 15px;
-            }
-            .hero h2 {
-                font-size: 2rem;
-            }
-            nav ul {
-                flex-direction: column;
-                text-align: center;
-                gap: 10px;
-            }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-10px); }
             to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900">
 
-    <!-- Top Bar -->
-    <div class="top-bar">
-        ximenacastano@gmail.com
-    </div>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold tracking-tight text-indigo-600">Ximena Castaño <span class="text-slate-400 font-light">Ph.D.</span></span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home" class="text-sm font-medium hover:text-indigo-600 transition-colors">Home</a>
+                    <div class="relative group">
+                        <button class="flex items-center text-sm font-medium hover:text-indigo-600 transition-colors">
+                            Projects <i data-lucide="chevron-down" class="ml-1 w-4 h-4"></i>
+                        </button>
+                        <div class="absolute hidden group-hover:block w-48 bg-white border border-slate-100 shadow-xl rounded-lg py-2 mt-1">
+                            <a href="#workplace" class="block px-4 py-2 text-sm hover:bg-slate-50">Workplace Learning</a>
+                            <a href="#mentorship" class="block px-4 py-2 text-sm hover:bg-slate-50">Mentorship</a>
+                            <a href="#it-courses" class="block px-4 py-2 text-sm hover:bg-slate-50">IT Courses</a>
+                        </div>
+                    </div>
+                    <a href="mailto:ximenacastano@gmail.com" class="bg-indigo-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-indigo-700 transition-all shadow-md">Contact Me</a>
+                </div>
 
-    <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <a href="#" class="logo">Ximena Castaño <span>I.D.</span></a>
-           <nav>
-    <ul>
-        <!-- Projects with submenu -->
-        <li class="has-submenu">
-            <a href="#">Projects</a>
-            <ul class="submenu">
-                <li><a href="https://course-resilience.s3.amazonaws.com/portfolio/course1/index.html#/">Workplace Learning</a></li>
-                <li><a href="Teachers Mentorship.html">Mentorship</a></li>
-                <li><a href="https://drive.google.com/drive/folders/1-XkugaaO5cgrbW1SAo2iVvwOcI0JLs96?usp=drive_link">IT Courses</a></li>
-            </ul>
-        </li>
-        <li><a href="#">Resume</a></li>
-    </ul>
-</nav>
+                <!-- Mobile Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="p-2 rounded-md text-slate-600">
+                        <i data-lucide="menu" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="md:hidden bg-white border-b border-slate-100">
+            <div class="px-4 pt-2 pb-6 space-y-2">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-slate-700">Home</a>
+                <div class="pl-3 space-y-1">
+                    <p class="px-3 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest">Projects</p>
+                    <a href="#workplace" class="block px-3 py-2 text-base text-slate-600">Workplace Learning</a>
+                    <a href="#mentorship" class="block px-3 py-2 text-base text-slate-600">Mentorship</a>
+                    <a href="#it-courses" class="block px-3 py-2 text-base text-slate-600">IT Courses</a>
+                </div>
+                <a href="mailto:ximenacastano@gmail.com" class="block px-3 py-2 text-base font-medium text-indigo-600">Contact Email</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="pt-32 pb-20 lg:pt-48 lg:pb-32 px-4">
+        <div class="max-w-5xl mx-auto text-center">
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+                Instructional Designer & <br>
+                <span class="gradient-text">eLearning Specialist</span>
+            </h1>
+            <p class="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-10">
+                I help organizations turn boring training into effective, engaging learning experiences. Bridging the gap between complex data and learner success.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#portfolio" class="bg-slate-900 text-white px-8 py-4 rounded-xl font-bold hover:bg-slate-800 transition-all shadow-lg flex items-center justify-center">
+                    View Portfolio <i data-lucide="arrow-down" class="ml-2 w-5 h-5"></i>
+                </a>
+                <a href="#" class="bg-white border border-slate-200 text-slate-700 px-8 py-4 rounded-xl font-bold hover:bg-slate-50 transition-all flex items-center justify-center">
+                    Download Resume <i data-lucide="file-text" class="ml-2 w-5 h-5"></i>
+                </a>
+            </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-content">
-            <h2>Instructional Designer & eLearning Specialist</h2>
-            <p>I help organizations turn boring training into effective, engaging learning experiences.</p>
-            <a href="#" class="btn">View Portfolio</a>
+    <!-- Portfolio Grid -->
+    <section id="portfolio" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex items-end justify-between mb-12">
+                <div>
+                    <h2 class="text-3xl font-bold mb-2">My Portfolio</h2>
+                    <p class="text-slate-500">A collection of recent instructional design projects.</p>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                
+                <!-- Project Card 1 -->
+                <div id="mentorship" class="project-card bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="h-48 bg-indigo-100 flex items-center justify-center relative group">
+                        <!-- Image Holder -->
+                        <i data-lucide="users" class="w-16 h-16 text-indigo-300 group-hover:scale-110 transition-transform"></i>
+                        <div class="absolute inset-0 bg-indigo-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <span class="text-xs font-bold text-indigo-600 uppercase tracking-widest mb-2 block">Articulate Scenario</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-800">Teachers' Mentorship</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            An Articulate scenario-based project designed to help teachers improve classroom management.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="#" class="inline-flex items-center text-indigo-600 font-bold text-sm hover:underline">
+                            View Project <i data-lucide="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div id="workplace" class="project-card bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="h-48 bg-purple-100 flex items-center justify-center relative group">
+                        <i data-lucide="briefcase" class="w-16 h-16 text-purple-300 group-hover:scale-110 transition-transform"></i>
+                        <div class="absolute inset-0 bg-purple-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <span class="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2 block">Micro-Course</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-800">Project Micro-Course</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Bite-sized learning module focused on quick skill acquisition for corporate environments.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="#" class="inline-flex items-center text-purple-600 font-bold text-sm hover:underline">
+                            View Project <i data-lucide="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="project-card bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="h-48 bg-emerald-100 flex items-center justify-center relative group">
+                        <i data-lucide="stethascope" class="w-16 h-16 text-emerald-300 group-hover:scale-110 transition-transform"></i>
+                        <div class="absolute inset-0 bg-emerald-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <span class="text-xs font-bold text-emerald-600 uppercase tracking-widest mb-2 block">Healthcare</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-800">Health Environments</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Demo about workplace learning in healthcare settings using Articulate Storyline.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="#" class="inline-flex items-center text-emerald-600 font-bold text-sm hover:underline">
+                            View Project <i data-lucide="arrow-right" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 4 -->
+                <div id="it-courses" class="project-card bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="h-48 bg-blue-100 flex items-center justify-center relative group">
+                        <i data-lucide="code" class="w-16 h-16 text-blue-300 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <span class="text-xs font-bold text-blue-600 uppercase tracking-widest mb-2 block">Technical</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-800">IT Oriented Files</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            A curated folder of technical demos and IT-oriented educational content.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="#" class="inline-flex items-center text-blue-600 font-bold text-sm hover:underline">
+                            View Files <i data-lucide="external-link" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 5 -->
+                <div class="project-card bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 flex flex-col">
+                    <div class="h-48 bg-orange-100 flex items-center justify-center relative group">
+                        <i data-lucide="lightbulb" class="w-16 h-16 text-orange-300 group-hover:scale-110 transition-transform"></i>
+                    </div>
+                    <div class="p-6 flex-grow">
+                        <span class="text-xs font-bold text-orange-600 uppercase tracking-widest mb-2 block">Articulate Rise</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-800">Innovation Course</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            Full innovation course for Higher Education built in Articulate Rise (Spanish).
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="#" class="inline-flex items-center text-orange-600 font-bold text-sm hover:underline">
+                            Start Course <i data-lucide="play" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section class="about-section">
-        <h3>Hi, I'm Ximena Castaño</h3>
-        <p>
-            I design instruction and eLearning for companies and organizations looking for effective and engaging learning experiences. 
-            I help them turn boring training into exciting opportunities for their employees to learn new skills.
-        </p>
-        <p>
-            With a background in education and technology, I bridge the gap between complex information and learner understanding.
-        </p>
-    </section>
-
-    <!-- Portfolio Section -->
-    <section class="portfolio-section">
-        <h3 class="section-title">My Portfolio</h3>
-        <div class="grid">
-            <!-- Card 1 -->
-            <div class="card">
-                <div class="card-img" style="background: #e0f7fa;"></div>
-                <div class="card-content">
-                    <h4>Teachers' Mentorship</h4>
-                    <p>An Articulate Scenario based project designed to help teachers improve classroom management.</p>
-                    <a href="Teachers Mentorship.html" class="read-more">View Project &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Card 2 -->
-            <div class="card">
-                <div class="card-img" style="background: #fff3e0;"></div>
-                <div class="card-content">
-                    <h4>Project Micro-Course</h4>
-                    <p>A bite-sized learning module focused on quick skill acquisition for corporate environments.</p>
-                    <a href="Workplace Learning.html" class="read-more">View Project &rarr;</a>
-                </div>
-            </div>
-
-            <!-- Card 3 -->
-            <div class="card">
-                <div class="card-img" style="background: #f3e5f5;"></div>
-                <div class="card-content">
-                    <h4>Demo Articulate Storyline</h4>
-                    <p>Demo about workpleace learning in health environments</p>
-                    <a href="demo_articulate/index.html" class="read-more">View Project &rarr;</a>
-                </div>
-            </div>            
-                    
-        <!-- Card 4 -->
-            <div class="card">
-                <div class="card-img" style="background: #f3e5f5;"></div>
-                <div class="card-content">
-                    <h4>Demo Articulate Storyline</h4>
-                    <p>Demo files for IT orientend content</p>
-                    <a href="https://drive.google.com/drive/folders/1-XkugaaO5cgrbW1SAo2iVvwOcI0JLs96?usp=drive_link" class="read-more">View Files &rarr;</a>
-                </div>
-            </div>            
-        <!-- Card 5 -->
-            <div class="card">
-                <div class="card-img" style="background: #f3e5f5;"></div>
-                <div class="card-content">
-                    <h4>Articulate rise - Innovation (spanish)</h4>
-                    <p>Innovation Course for H.E in Articulate Rise</p>
-                    <a href="https://delicate-druid-9667b6.netlify.app/" class="read-more">View Course &rarr;</a>
-                </div>
-            </div>            
-     </div>
-     </section>
     <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Ximena Castaño Ph.D. All Rights Reserved.</p>
-        <p style="font-size: 0.8rem; opacity: 0.7;">CoachPress Lite Theme | Developed By Blossom Themes</p>
+    <footer class="bg-slate-900 text-white py-12 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center">
+            <div class="mb-6 md:mb-0 text-center md:text-left">
+                <p class="text-lg font-bold">Ximena Castaño <span class="text-slate-500">Ph.D.</span></p>
+                <p class="text-slate-500 text-sm">Instructional Designer & eLearning Specialist</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="#" class="text-slate-400 hover:text-white"><i data-lucide="linkedin"></i></a>
+                <a href="#" class="text-slate-400 hover:text-white"><i data-lucide="github"></i></a>
+                <a href="mailto:ximenacastano@gmail.com" class="text-slate-400 hover:text-white"><i data-lucide="mail"></i></a>
+            </div>
+        </div>
+        <div class="max-w-7xl mx-auto border-t border-slate-800 mt-8 pt-8 text-center text-slate-500 text-xs">
+            © 2025 Ximena Castaño. All Rights Reserved.
+        </div>
     </footer>
 
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Mobile Menu Toggle
+        const btn = document.getElementById('menu-toggle');
+        const menu = document.getElementById('mobile-menu');
+        const icon = document.getElementById('menu-icon');
+
+        btn.addEventListener('click', () => {
+            const isActive = menu.classList.toggle('active');
+            
+            // Swap icons manually for effect
+            if (isActive) {
+                icon.setAttribute('data-lucide', 'x');
+            } else {
+                icon.setAttribute('data-lucide', 'menu');
+            }
+            lucide.createIcons();
+        });
+
+        // Close menu on link click
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.remove('active');
+                icon.setAttribute('data-lucide', 'menu');
+                lucide.createIcons();
+            });
+        });
+    </script>
 </body>
 </html>
-
-
-
-
-
-
