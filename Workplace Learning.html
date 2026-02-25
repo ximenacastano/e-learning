@@ -3,289 +3,235 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resilience in the Workplace - Ximena Castaño Ph.D.</title>
+    <title>Resilience in the Workplace | Ximena Castaño Case Study</title>
+    
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🌱</text></svg>">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        /* --- CSS VARIABLES & RESET (Same as Homepage) --- */
-        :root {
-            --primary-color: #b78c56; /* Gold/Bronze accent */
-            --text-color: #333333;
-            --bg-color: #ffffff;
-            --light-bg: #f8f9fa;
-            --heading-font: 'Playfair Display', serif;
-            --body-font: 'Lato', sans-serif;
-        }
-
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
         body {
-            font-family: var(--body-font);
-            color: var(--text-color);
-            line-height: 1.8; /* Slightly more spacing for reading case studies */
-            background-color: var(--bg-color);
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
         }
 
-        a { text-decoration: none; color: inherit; transition: color 0.3s; }
-        a:hover { color: var(--primary-color); }
-
-        @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap');
-
-        /* --- HEADER & NAVIGATION --- */
-        header {
-            background: #fff;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .top-bar {
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 5px 20px;
-            font-size: 0.85rem;
-            text-align: right;
+        .hero-gradient {
+            background: linear-gradient(90deg, #10b981, #3b82f6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .logo {
-            font-family: var(--heading-font);
-            font-size: 1.8rem;
-            font-weight: 700;
-            color: #000;
-        }
-        .logo span { color: var(--primary-color); }
-
-        nav ul { display: flex; list-style: none; gap: 25px; }
-        nav a { font-weight: 500; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* --- PROJECT HERO SECTION --- */
-        .project-hero {
-            background-color: var(--light-bg);
-            padding: 80px 20px 40px;
-            text-align: center;
-        }
-
-        .project-hero h1 {
-            font-family: var(--heading-font);
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-
-        .project-hero .subtitle {
-            font-size: 1.2rem;
-            color: #666;
-            margin-bottom: 30px;
-        }
-
-        /* --- BUTTONS --- */
-        .btn {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: #fff;
-            padding: 12px 35px;
-            border-radius: 2px;
-            text-transform: uppercase;
-            font-weight: bold;
-            letter-spacing: 1px;
-            border: 2px solid var(--primary-color);
-            margin-top: 20px;
-        }
-        .btn:hover { background-color: #fff; color: var(--primary-color); }
-
-        /* --- CASE STUDY CONTENT --- */
-        .case-study-container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 60px 20px;
-        }
-
-        .project-details-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px;
-            background: #fff;
-            padding: 30px;
-            border-left: 5px solid var(--primary-color);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-        }
-
-        .detail-item h4 {
-            font-family: var(--heading-font);
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            color: #000;
-        }
-        .detail-item p { font-size: 0.95rem; color: #555; }
-
-        .content-section { margin-bottom: 60px; }
-        
-        .content-section h3 {
-            font-family: var(--heading-font);
-            font-size: 2rem;
-            margin-bottom: 20px;
-            position: relative;
-            display: inline-block;
+        .card-hover {
+            transition: all 0.3s ease;
         }
         
-        .content-section h3::after {
-            content: '';
-            display: block;
-            width: 50%;
-            height: 3px;
-            background-color: var(--primary-color);
-            margin-top: 10px;
+        .card-hover:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.05);
         }
 
-        .content-section p { margin-bottom: 20px; color: #444; }
+        #mobile-menu { display: none; }
+        #mobile-menu.active { display: block; }
 
-        /* --- PLACEHOLDER IMAGES --- */
-        .img-placeholder {
-            width: 100%;
-            height: 400px;
-            background-color: #eee;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #888;
-            font-size: 1.2rem;
-            margin: 40px 0;
-            border-radius: 4px;
-        }
-
-        /* --- FOOTER --- */
-        footer {
-            background-color: #222;
-            color: #aaa;
-            text-align: center;
-            padding: 40px 20px;
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-container { flex-direction: column; gap: 15px; }
-            .project-hero h1 { font-size: 2.2rem; }
-            nav ul { flex-direction: column; text-align: center; gap: 10px; }
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
     </style>
 </head>
-<body>
+<body class="bg-slate-50 text-slate-900">
 
-    <!-- Top Bar -->
-    <div class="top-bar">ximenacastano@gmail.com</div>
+    <!-- Navigation -->
+    <nav class="glass-nav fixed w-full z-50 top-0">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center">
+                    <a href="portfolio_update.html" class="text-xl font-bold tracking-tight text-emerald-600">
+                        Ximena Castaño <span class="text-slate-400 font-light">Ph.D.</span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="portfolio_update.html" class="text-sm font-medium hover:text-emerald-600 transition-colors">Home</a>
+                    <a href="portfolio_update.html#portfolio" class="text-sm font-medium hover:text-emerald-600 transition-colors">Portfolio</a>
+                    <a href="mailto:ximenacastano@gmail.com" class="bg-emerald-600 text-white px-5 py-2.5 rounded-full text-sm font-semibold hover:bg-emerald-700 transition-all shadow-md">Get in Touch</a>
+                </div>
 
-    <!-- Header -->
-    <header>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Ximena Castaño <span>Ph.D.</span></a>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="#">Portfolio</a></li>
-                    <li><a href="#">Mentorship</a></li>
-                    <li><a href="#">Books</a></li>
-                    <li><a href="#">Resume</a></li>
-                </ul>
+                <div class="md:hidden flex items-center">
+                    <button id="menu-toggle" class="p-2 rounded-md text-slate-600">
+                        <i data-lucide="menu" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden bg-white border-b border-slate-100 px-4 py-6 space-y-4">
+            <a href="portfolio_update.html" class="block px-3 py-2 text-base font-medium text-slate-700">Home</a>
+            <a href="portfolio_update.html#portfolio" class="block px-3 py-2 text-base text-slate-600">Portfolio</a>
+            <a href="mailto:ximenacastano@gmail.com" class="block px-3 py-2 text-base font-medium text-emerald-600">Contact</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="pt-32 pb-16 lg:pt-48 bg-white border-b border-slate-100">
+        <div class="max-w-5xl mx-auto px-4">
+            <nav class="flex mb-8 text-sm font-bold text-emerald-500 uppercase tracking-widest">
+                <a href="portfolio_update.html#portfolio" class="hover:text-emerald-700 transition-colors">Portfolio</a>
+                <span class="mx-3 text-slate-300">/</span>
+                <span class="text-slate-400">Case Study</span>
             </nav>
+            <h1 class="text-4xl md:text-7xl font-extrabold tracking-tight mb-6 leading-tight">
+                Resilience in the <br class="hidden md:block"> <span class="hero-gradient">Workplace</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-slate-500 mb-10 max-w-3xl leading-relaxed">
+                An interactive micro-course designed to help young professionals manage stress and navigate day-to-day challenges with composure.
+            </p>
+            <a href="#" class="inline-flex items-center bg-emerald-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-emerald-700 transition-all shadow-xl">
+                Experience the Project <i data-lucide="external-link" class="ml-2 w-5 h-5"></i>
+            </a>
         </div>
     </header>
 
-    <!-- Project Hero -->
-    <section class="project-hero">
-        <h1>Project Micro-Course</h1>
-        <p class="subtitle">"Resilience in the Workplace"</p>
-        <a href="#" class="btn">Experience the Project</a>
+    <!-- Quick Stats -->
+    <section class="py-12 bg-white border-b border-slate-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Roles</h4>
+                    <p class="text-sm font-bold text-slate-800">ID, Research, Script, Graphic Design</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Tools</h4>
+                    <p class="text-sm font-bold text-slate-800">Articulate Rise, Krita, Canva, Figma</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Audience</h4>
+                    <p class="text-sm font-bold text-slate-800">Young Professionals</p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold text-slate-400 uppercase tracking-widest mb-1">Year</h4>
+                    <p class="text-sm font-bold text-slate-800">2022</p>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <!-- Case Study Container -->
-    <div class="case-study-container">
+    <!-- Project Overview -->
+    <main class="py-20">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <!-- Section: The Problem -->
+            <section class="mb-32">
+                <h2 class="text-3xl font-bold mb-6">The Problem</h2>
+                <div class="grid md:grid-cols-2 gap-12 items-center">
+                    <div class="prose prose-slate lg:prose-lg text-slate-600 leading-relaxed max-w-none">
+                        <p>
+                            Most young professionals find it difficult to face the day-to-day challenges of work. The inability to deal with stressful situations leads to:
+                        </p>
+                        <ul class="space-y-2 mt-4">
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="x-circle" class="w-5 h-5 text-red-400 mt-1 flex-shrink-0"></i>
+                                <span>Workplace misunderstandings and fatigue</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="x-circle" class="w-5 h-5 text-red-400 mt-1 flex-shrink-0"></i>
+                                <span>Inability to think clearly for creative solutions</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <i data-lucide="x-circle" class="w-5 h-5 text-red-400 mt-1 flex-shrink-0"></i>
+                                <span>Lack of control over daily tasks and dissatisfaction</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="bg-red-50 p-8 rounded-3xl border border-red-100 card-hover">
+                        <h3 class="text-red-800 font-bold mb-4 flex items-center">
+                            <i data-lucide="alert-triangle" class="mr-2 w-5 h-5"></i> Core Challenge
+                        </h3>
+                        <p class="text-red-900/70 text-sm leading-relaxed">
+                            How can we bridge the gap in stress management for onboarding employees to ensure long-term performance and motivation?
+                        </p>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Project Details Metadata -->
-        <div class="project-details-grid">
-            <div class="detail-item">
-                <h4>Role</h4>
-                <p>Research, ID, Script, Graphic Design, Development</p>
-            </div>
-            <div class="detail-item">
-                <h4>Tools</h4>
-                <p>Articulate Rise, Krita, Canva, Figma</p>
-            </div>
-            <div class="detail-item">
-                <h4>Audience</h4>
-                <p>Young Professionals</p>
-            </div>
-            <div class="detail-item">
-                <h4>Year</h4>
-                <p>2022</p>
-            </div>
-        </div>
+            <!-- Section: The Solution -->
+            <section class="mb-32">
+                <h2 class="text-3xl font-bold mb-10 text-center">The Solution</h2>
+                <div class="bg-white p-8 md:p-12 rounded-[2.5rem] border border-slate-100 shadow-sm relative overflow-hidden">
+                    <div class="relative z-10">
+                        <p class="text-lg text-slate-600 mb-8 leading-relaxed">
+                            A dynamic micro-course implemented during the <strong>onboarding phase</strong>. This short and interactive experience hones resilience levels, allowing young professionals to face common workplace challenges with composure.
+                        </p>
+                        
+                        <div class="grid sm:grid-cols-3 gap-6">
+                            <div class="bg-slate-50 p-6 rounded-2xl text-center">
+                                <i data-lucide="mouse-pointer-2" class="w-8 h-8 text-emerald-500 mx-auto mb-3"></i>
+                                <h4 class="font-bold text-sm mb-1">Decision Making</h4>
+                                <p class="text-xs text-slate-500">Practice real-world choices in a safe space.</p>
+                            </div>
+                            <div class="bg-slate-50 p-6 rounded-2xl text-center">
+                                <i data-lucide="message-square" class="w-8 h-8 text-emerald-500 mx-auto mb-3"></i>
+                                <h4 class="font-bold text-sm mb-1">Direct Feedback</h4>
+                                <p class="text-xs text-slate-500">Immediate insights on the impact of actions.</p>
+                            </div>
+                            <div class="bg-slate-50 p-6 rounded-2xl text-center">
+                                <i data-lucide="pen-tool" class="w-8 h-8 text-emerald-500 mx-auto mb-3"></i>
+                                <h4 class="font-bold text-sm mb-1">Reflective Writing</h4>
+                                <p class="text-xs text-slate-500">Internalize strategies through thought.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-        <!-- The Problem -->
-        <div class="content-section">
-            <h3>The Problem</h3>
-            <p>
-                Most young professionals find it difficult to face the day-to-day challenges of work. The inability to deal with the stressful situations that arise on a daily basis creates misunderstandings at work, feelings of fatigue, an inability to think clearly to find creative solutions, and a lack of control over day-to-day tasks.
-            </p>
-            <p>
-                Ultimately, this leads to dissatisfaction. These problems can be better managed when we learn to better understand ourselves and create space to balance our energies, emotions, and attitudes.
-            </p>
-        </div>
+            <!-- Section: Features & Process -->
+            <section class="mb-32">
+                <div class="flex flex-col md:flex-row gap-12">
+                    <div class="md:w-1/2">
+                        <h2 class="text-3xl font-bold mb-6">Process & Design</h2>
+                        <p class="text-slate-600 mb-6">
+                            Creating this project was an ongoing process of refining the story-based instructional design workflow. Every detail—from buttons and spacing to typography—was carefully crafted to ensure a professional eLearning experience.
+                        </p>
+                        <div class="space-y-4">
+                            <div class="flex gap-4 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+                                <i data-lucide="check-circle-2" class="text-emerald-600 w-6 h-6 flex-shrink-0"></i>
+                                <div>
+                                    <h5 class="font-bold text-emerald-900 text-sm">Web-Responsive Design</h5>
+                                    <p class="text-xs text-emerald-800/70">Optimized for seamless execution across all devices.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-4 p-4 bg-blue-50 rounded-xl border border-blue-100">
+                                <i data-lucide="layout" class="text-blue-600 w-6 h-6 flex-shrink-0"></i>
+                                <div>
+                                    <h5 class="font-bold text-blue-900 text-sm">Interactive Visualization</h5>
+                                    <p class="text-xs text-blue-800/70">Engaging storytelling that addresses communication problems.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2 bg-slate-200 rounded-3xl min-h-[300px] flex items-center justify-center border border-slate-300">
+                         <div class="text-center p-8">
+                            <i data-lucide="monitor" class="w-16 h-16 text-slate-400 mx-auto mb-4"></i>
+                            <p class="text-slate-500 font-medium italic">Rise Course Preview Mockup</p>
+                         </div>
+                    </div>
+                </div>
+            </section>
 
-        <!-- Image Placeholder -->
-        <div class="img-placeholder">
-            [Image: Mockup of Articulate Rise Course on Laptop]
-        </div>
-
-        <!-- The Solution -->
-        <div class="content-section">
-            <h3>The Solution</h3>
-            <p>
-                It is crucial to help young professionals hone their resilience levels to help them face challenging situations that are common in every workplace. A professional can be very skillful, but if they are unable to behave composedly during a stressful situation, it can negatively impact their performance and motivation.
-            </p>
-            <p>
-                Understanding resilience better can help bridge the gap in managing stress at work. This short and dynamic learning experience is designed to be implemented during the onboarding of young professionals.
-            </p>
-            <p>
-                Above all, the interactive story allows users to practice and internalize the resilience threshold through <strong>decision making, direct feedback, and reflective writing.</strong> This course features an interactive visualization made possible for execution as a web-responsive design.
-            </p>
-        </div>
-
-        <!-- Image Placeholder -->
-        <div class="img-placeholder">
-            [Image: Course Prototype / Screens]
-        </div>
-
-        <!-- The Process / Reflection -->
-        <div class="content-section">
-            <h3>Reflection & Process</h3>
-            <p>
-                Creating this project was an ongoing process that helped me gain a stronger sense of the instructional design workflow from beginning to end. I learned how to design, develop, and refine a learning experience that was story-based and addressed real-life communication problems for young professionals.
-            </p>
-            <p>
-                I discovered how essential the development phase is in gaining a deeper understanding of tools that help create professional and quality eLearning experiences. I realized just how much every detail counts in the learning experience – from buttons, spacing, and text font, to other core design principles.
-            </p>
-        </div>
-
-        <div style="text-align: center; margin-top: 50px;">
-            <a href="#" class="btn">Launch Full Course</a>
-        </div>
-
-    </div>
-
-    <!-- Footer -->
-    <footer>
-        <p>&copy; 2025 Ximena Castaño Ph.D. All Rights Reserved.</p>
-        <p style="font-size: 0.8rem; opacity: 0.7;">CoachPress Lite Theme | Developed By Blossom Themes</p>
-    </footer>
-
-</body>
-</html>
+            <!-- Reflection -->
+            <section class="bg-slate-900 text-white p-12 rounded-[2rem] relative overflow-hidden">
+                <div class="relative z-10">
+                    <h2 class="text-3xl font-bold mb-6 text-emerald-400">Reflection</h2>
+                    <div class="prose prose-invert lg:prose-lg text-slate-400">
+                        <p>
+                            I learned how essential the development phase is in gaining a deeper understanding of tools that create quality eLearning. Realizing just how much every detail counts—from whitespace to core design principles—was a major takeaway for my professional growth.
+                        </p>
+                    </div>
+                </div>
+                <div class="absolute -right-20 -bottom-20 w-80 h-80 b
