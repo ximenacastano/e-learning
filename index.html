@@ -85,7 +85,6 @@
                         <div class="absolute hidden group-hover:block w-52 bg-white border border-slate-100 shadow-xl rounded-lg py-2 mt-1">
                             <a href="#ai-explanation-course" class="block px-4 py-2 text-sm hover:bg-slate-50">AI Explanation Course</a>
                             <a href="#ai-sales-onboarding" class="block px-4 py-2 text-sm hover:bg-slate-50">Sales Onboarding</a>
-                            <a href="#ai-id-scenario" class="block px-4 py-2 text-sm hover:bg-slate-50">ID Branching Scenario</a>
                         </div>
                     </div>
                     <!-- NEW: Videos link -->
@@ -117,7 +116,6 @@
                     <p class="px-3 py-2 text-xs font-bold text-slate-400 uppercase tracking-widest">AI Projects</p>
                     <a href="#ai-explanation-course" class="block px-3 py-2 text-base text-slate-600">AI Explanation Course</a>
                     <a href="#ai-sales-onboarding" class="block px-3 py-2 text-base text-slate-600">Sales Onboarding</a>
-                    <a href="#ai-id-scenario" class="block px-3 py-2 text-base text-slate-600">ID Branching Scenario</a>
                 </div>
                 <!-- NEW: Videos in mobile -->
                 <a href="#videos" class="block px-3 py-2 text-base font-medium text-slate-700">Videos</a>
@@ -272,7 +270,7 @@
                 </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl">
 
                 <!-- AI Card 1 -->
                 <div id="ai-explanation-course" class="project-card bg-white rounded-2xl overflow-hidden border border-slate-100 flex flex-col">
@@ -288,7 +286,7 @@
                         </p>
                     </div>
                     <div class="p-6 pt-0 mt-auto">
-                        <a href="https://ximenacastano.github.io/ID_Demos/" class="inline-flex items-center text-violet-600 font-bold text-sm hover:underline">
+                        <a href="#" class="inline-flex items-center text-violet-600 font-bold text-sm hover:underline">
                             View Course <i data-lucide="arrow-right" class="ml-1 w-4 h-4"></i>
                         </a>
                     </div>
@@ -308,28 +306,8 @@
                         </p>
                     </div>
                     <div class="p-6 pt-0 mt-auto">
-                        <a href="https://ximenacastano.github.io/Onboarding-demo/" class="inline-flex items-center text-cyan-600 font-bold text-sm hover:underline">
+                        <a href="#" class="inline-flex items-center text-cyan-600 font-bold text-sm hover:underline">
                             View Course <i data-lucide="arrow-right" class="ml-1 w-4 h-4"></i>
-                        </a>
-                    </div>
-                </div>
-
-                <!-- AI Card 3 -->
-                <div id="ai-id-scenario" class="project-card bg-white rounded-2xl overflow-hidden border border-slate-100 flex flex-col">
-                    <div class="h-48 bg-rose-100 flex items-center justify-center relative group">
-                        <i data-lucide="git-branch" class="w-16 h-16 text-rose-300 group-hover:scale-110 transition-transform"></i>
-                        <div class="absolute inset-0 bg-rose-600 opacity-0 group-hover:opacity-10 transition-opacity"></div>
-                    </div>
-                    <div class="p-6 flex-grow">
-                        <span class="text-xs font-bold text-rose-600 uppercase tracking-widest mb-2 block">AI · ID Scenario</span>
-                        <h3 class="text-xl font-bold mb-2 text-slate-800">ID Branching Scenario</h3>
-                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
-                            An interactive branching scenario built with Claude, putting learners in real-world sales decisions with immediate, consequence-driven feedback.
-                        </p>
-                    </div>
-                    <div class="p-6 pt-0 mt-auto">
-                        <a href="https://ximenacastano.github.io/Vibecode_id_interactions/" class="inline-flex items-center text-rose-600 font-bold text-sm hover:underline">
-                            Try Scenario <i data-lucide="arrow-right" class="ml-1 w-4 h-4"></i>
                         </a>
                     </div>
                 </div>
@@ -364,8 +342,34 @@
                         </p>
                     </div>
                     <div class="p-6 pt-0 mt-auto">
-                        <a href="https://youtu.be/MCuKOF0cQBg" class="inline-flex items-center text-indigo-600 font-bold text-sm hover:underline">
+                        <a href="https://ximenacastano.github.io/ID_Demos/" target="_blank" class="inline-flex items-center text-indigo-600 font-bold text-sm hover:underline">
                             Watch Video <i data-lucide="external-link" class="ml-1 w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Video Card 2 — NovaS park -->
+                <div id="video-novaspark" class="project-card bg-slate-50 rounded-2xl overflow-hidden border border-slate-100 flex flex-col">
+                    <a href="https://youtu.be/W2mUFNjN1R0" target="_blank" class="block relative group h-48 overflow-hidden">
+                        <img 
+                            src="https://img.youtube.com/vi/W2mUFNjN1R0/hqdefault.jpg" 
+                            alt="NovaS park video thumbnail"
+                            class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                        >
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center group-hover:bg-opacity-20 transition-all">
+                            <i data-lucide="play-circle" class="w-14 h-14 text-white opacity-90 group-hover:scale-110 transition-transform"></i>
+                        </div>
+                    </a>
+                    <div class="p-6 flex-grow">
+                        <span class="text-xs font-bold text-purple-600 uppercase tracking-widest mb-2 block">Claude · HeyGen · HyperFrames</span>
+                        <h3 class="text-xl font-bold mb-2 text-slate-800">NovaS park — Corporate Video</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                            A corporate explainer video for a fictional company, produced end-to-end using AI tools: Claude for scripting, HeyGen for avatars, and HyperFrames for rendering.
+                        </p>
+                    </div>
+                    <div class="p-6 pt-0 mt-auto">
+                        <a href="https://youtu.be/W2mUFNjN1R0" target="_blank" class="inline-flex items-center text-purple-600 font-bold text-sm hover:underline">
+                            Watch on YouTube <i data-lucide="external-link" class="ml-1 w-4 h-4"></i>
                         </a>
                     </div>
                 </div>
